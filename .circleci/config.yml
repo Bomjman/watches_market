@@ -5,7 +5,6 @@ jobs:
   build:
     - image: "docker/compose:latest"
   steps:
-   - checkout
    - run:
     name: build docker image
     command: |
