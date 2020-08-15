@@ -7,13 +7,11 @@ jobs:
         - checkout
         - run:
             name: build docker image
-            command: |
-                docker-compose up -d --build
-                docker-compose exec app bundle exec rake db:setup db:migrate
+            command: docker-compose up -d --build
+            command: docker-compose exec app bundle exec rake db:setup db:migrate
     Exit:
         steps:
             - run:
                 name: Exit
-                command: |
-                    docker-compose logs
-                    docker-compose down
+                command: docker-compose logs
+                command: docker-compose down
