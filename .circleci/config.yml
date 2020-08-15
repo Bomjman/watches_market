@@ -5,13 +5,14 @@ jobs:
   build:
     - image: "docker/compose:latest"
   steps:
+   - checkout
    - run:
-    name: build docker image
-    command: |
-      docker-compose up -d --build
-      docker-compose exec app bundle exec rake db:setup db:migrate
+        name: build docker image
+        command: |
+            docker-compose up -d --build
+            docker-compose exec app bundle exec rake db:setup db:migrate
     - run:
-      name: Exit
-      command: |
-        docker-compose logs
-        docker-compose down
+        name: Exit
+        command: |
+            docker-compose logs
+            docker-compose down
