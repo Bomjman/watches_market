@@ -10,6 +10,8 @@ jobs:
             command: |
                 docker-compose up -d --build
                 docker-compose exec app bundle exec rake db:setup db:migrate
+    Exit:
+        steps:
             - run:
                 name: Exit
                 command: |
